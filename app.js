@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const _ = require('lodash');
+const dotenv = require('dotenv');
 
+dotenv.config();
 // O body-parser atribui o valor para a variável pegando o value do elemento que possui o name, o qual está dentro de um form.
 // const {variável} = req.body.{name:value};
 
@@ -25,7 +27,7 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 // Conecta/Cria o DB todolistDB
-mongoose.connect("mongodb://127.0.0.1/todolistDB", { useNewURLParser: true });
+mongoose.connect(process.env.MONGO_URL, { useNewURLParser: true });
 
 // Schema é como se fosse o molde para determinado item ser criado.
 const itemsSchema = new mongoose.Schema({
