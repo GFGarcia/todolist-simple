@@ -8,11 +8,8 @@ dotenv.config();
 // O body-parser atribui o valor para a variável pegando o value do elemento que possui o name, o qual está dentro de um form.
 // const {variável} = req.body.{name:value};
 
-
 // date() agora executa a função getDate() do módulo date.js
 // console.log(date);
-
-const port = 3000;
 
 const app = express();
 
@@ -165,8 +162,4 @@ app.post("/delete", function (req, res) {
 
 app.get("/about", function (req, res) {
     res.render("about");
-});
-
-app.listen(port, function () {
-    console.log("Server running on port: " + port);
 });
